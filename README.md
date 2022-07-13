@@ -10,9 +10,11 @@ The objective of this project is to develop an automated software for Inventory 
 **Context:**
 Inventory Management is a module of Operations Management which provides end-to-end features related to Inventory, Sales, Purchases submodules required for smooth functioning of a business.
 
-**Background:**MERN Stack comprises MongoDB, Express, NodeJS, React which can handle both front and back-end development. Inventory Management is a module under Operations Management. This automated software to be developed would provide operations related to Inventory, Sales, Purchases, Report and Documents etc.
+**Background:**
+MERN Stack comprises MongoDB, Express, NodeJS, React which can handle both front and back-end development. Inventory Management is a module under Operations Management. This automated software to be developed would provide operations related to Inventory, Sales, Purchases, Report and Documents etc.
 
-**Brief:** Inventory management would have 4 major components: I) Inventory II) Sales III) Purchases IV) Dashboards and Reports
+**Brief:**
+Inventory management would have 4 major components: I) Inventory II) Sales III) Purchases IV) Dashboards and Reports
 
 
 ### Expected Project Outcomes
