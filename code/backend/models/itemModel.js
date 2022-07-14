@@ -50,6 +50,11 @@ const itemSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    itemGroup: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "ItemGroup",
+    },
   },
   { timestamps: true }
 );
