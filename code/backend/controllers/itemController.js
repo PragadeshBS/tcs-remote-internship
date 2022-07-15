@@ -19,6 +19,7 @@ const addItem = async (req, res) => {
     openingStock,
     reorderPoint,
     preferredVendor,
+    itemGroup,
   } = req.body;
   try {
     const item = await Item.create({
@@ -34,6 +35,7 @@ const addItem = async (req, res) => {
       openingStock,
       reorderPoint,
       preferredVendor,
+      itemGroup,
     });
     res.status(200).json(item);
   } catch (error) {
