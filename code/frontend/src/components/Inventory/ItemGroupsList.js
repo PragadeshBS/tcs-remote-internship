@@ -15,12 +15,28 @@ const ItemGroupsList = () => {
 
   return (
     <div>
-      <h1>Item groups</h1>
       <div>
-        {itemGroups &&
-          itemGroups.map((itemGroup) => {
-            return <div key={itemGroup._id}>{itemGroup.name}</div>;
-          })}
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {itemGroups &&
+              itemGroups.map((itemGroup, idx) => {
+                return (
+                  <tr key={itemGroup._id}>
+                    <td>{idx + 1}</td>
+                    <td>{itemGroup.name}</td>
+                    <td>{itemGroup.description}</td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

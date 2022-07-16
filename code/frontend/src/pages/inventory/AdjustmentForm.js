@@ -70,13 +70,13 @@ const AdjustmentForm = () => {
   }
 
   return (
-    <div>
-      {error && <div>{error}</div>}
-      {success && <div>{success}</div>}
+    <div className="ps-5 mt-2">
+      <h3 className="display-6">Make a New Adjustment</h3>
       <form onSubmit={handleSubmit(addAdjustment)}>
-        <div>
-          <label>Mode of adjustment</label>
+        <div className="my-3">
+          <label className="form-label">Mode of adjustment</label>
           <select
+            className="form-select w-75"
             {...register("mode", {
               required: "Mode of adjustment is required",
             })}
@@ -87,25 +87,29 @@ const AdjustmentForm = () => {
           </select>
           {errors.mode && <span>{errors.mode.message}</span>}
         </div>
-        <div>
-          <label>New Value of quantity/value</label>
+        <div className="my-3">
+          <label className="form-label">New Value of quantity/value</label>
           <input
+            className="form-control w-75"
             type="number"
             required={true}
             value={newVal}
             onChange={(e) => setNewVal(e.target.value)}
           />
         </div>
-        <div>
-          <label>Reference No.</label>
+        <div className="my-3">
+          <label className="form-label">Reference No.</label>
           <input
+            className="form-control w-75"
             {...register("refNo", { required: "Reference No. is required" })}
           />
           {errors.refNo && <span>{errors.refNo.message}</span>}
         </div>
-        <div>
-          <label>Date</label>
+        <div className="my-3">
+          <label className="form-label d-block">Date</label>
           <DatePicker
+            className="w-25"
+            format="dd - MM - yyyy"
             onChange={(dateVal) => {
               // add timezone offset
               setDate(
@@ -117,23 +121,30 @@ const AdjustmentForm = () => {
             value={date}
           />
         </div>
-        <div>
-          <label>Reason</label>
-          <input {...register("reason", { required: "Reason is required" })} />
+        <div className="my-3">
+          <label className="form-label">Reason</label>
+          <input
+            className="form-control w-75"
+            {...register("reason", { required: "Reason is required" })}
+          />
           {errors.reason && <span>{errors.reason.message}</span>}
         </div>
-        <div>
-          <label>Description</label>
+        <div className="my-3">
+          <label className="form-label">Description</label>
           <input
+            className="form-control w-75"
             {...register("description", {
               required: "Description is required",
             })}
           />
           {errors.description && <span>{errors.description.message}</span>}
         </div>
-        <div>
-          <label>Item</label>
-          <select {...register("item", { required: "Item is required" })}>
+        <div className="my-3">
+          <label className="form-label">Item</label>
+          <select
+            className="form-select w-75"
+            {...register("item", { required: "Item is required" })}
+          >
             <option value="">Select an item</option>
             {items &&
               items.map((item) => {
@@ -146,8 +157,18 @@ const AdjustmentForm = () => {
           </select>
           {errors.item && <span>{errors.item.message}</span>}
         </div>
-        <div>
-          <button type="submit">Make adjustment</button>
+        <div className="my-3">
+          {success && (
+            <div className="alert alert-success w-75 text-center">
+              {success}
+            </div>
+          )}
+          {error && (
+            <div className="alert alert-danger w-75 text-center">{error}</div>
+          )}
+          <button type="submit" className="btn bg-primary">
+            Make adjustment
+          </button>
         </div>
       </form>
     </div>

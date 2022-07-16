@@ -13,23 +13,21 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar />
-        <div>
-          <div className="row">
-            <div className="col-2 sidebar p-3">
-              <Sidebar />
-            </div>
-            <div className="col-10 container">
-              <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/inventory">
-                  <Route path="items" element={<Items />} />
-                  <Route path="items/add" element={<ItemForm />} />
-                  <Route path="item-groups" element={<ItemGroups />} />
-                  <Route path="adjustments" element={<Adjustments />} />
-                  <Route path="adjustments/add" element={<AdjustmentForm />} />
-                </Route>
-              </Routes>
-            </div>
+        <div className="row">
+          <div className="col-2 sidebar p-3">
+            <Sidebar />
+          </div>
+          <div className="col-10 container">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/inventory">
+                <Route path="items" element={<Items />} />
+                <Route path="items/add" element={<ItemForm />} />
+                <Route path="item-groups" element={<ItemGroups />} />
+                <Route path="adjustments" element={<Adjustments />} />
+                <Route path="adjustments/add" element={<AdjustmentForm />} />
+              </Route>
+            </Routes>
           </div>
         </div>
       </BrowserRouter>

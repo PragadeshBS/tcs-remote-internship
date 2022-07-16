@@ -2,7 +2,9 @@ const Item = require("../models/itemModel");
 const mongoose = require("mongoose");
 
 const getItems = async (req, res) => {
-  const items = await Item.find({}).sort({ createdAt: -1 });
+  const items = await Item.find({})
+    .sort({ createdAt: -1 })
+    .populate("itemGroup");
   res.json(items);
 };
 

@@ -15,7 +15,6 @@ const ItemsList = () => {
 
   return (
     <div>
-      <h3>Available Items</h3>
       <div>
         <table className="table">
           <thead>
@@ -28,19 +27,22 @@ const ItemsList = () => {
               <th scope="col">Reorder Point</th>
             </tr>
           </thead>
-          {items &&
-            items.map((item, idx) => {
-              return (
-                <tr key={item._id}>
-                  <td>{idx+1}</td>
-                  <td>{item.name}</td>
-                  <td>{item.itemGroup}</td>
-                  <td>₹ {item.sellingPrice}</td>
-                  <td>{item.openingStock}</td>
-                  <td>{item.reorderPoint}</td>
-                </tr>
-              );
-            })}
+          <tbody>
+            {items &&
+              items.map((item, idx) => {
+                console.log(item.itemGroup);
+                return (
+                  <tr key={item._id}>
+                    <td>{idx + 1}</td>
+                    <td>{item.name}</td>
+                    <td>{item.itemGroup.name}</td>
+                    <td>₹ {item.sellingPrice}</td>
+                    <td>{item.openingStock}</td>
+                    <td>{item.reorderPoint}</td>
+                  </tr>
+                );
+              })}
+          </tbody>
         </table>
       </div>
     </div>

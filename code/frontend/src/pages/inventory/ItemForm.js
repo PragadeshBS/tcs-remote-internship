@@ -40,56 +40,66 @@ const ItemForm = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
-      {error && <div>{error}</div>}
-      {success && <div>{success}</div>}
+    <div className="ps-5 mt-2">
+      <h3 className="display-6">Add a New Item</h3>
       <form onSubmit={handleSubmit(addItem)}>
-        <div>
-          <label>Item name</label>
-          <input {...register("name", { required: "Item name is required" })} />
+        <div className="my-3">
+          <label className="form-label">Item name</label>
+          <input
+            className="form-control w-75"
+            {...register("name", { required: "Item name is required" })}
+          />
           {errors.name && <span>{errors.name.message}</span>}
         </div>
-        <div>
-          <label>Unit</label>
-          <input {...register("unit", { required: "Unit is required" })} />
+        <div className="my-3">
+          <label className="form-label">Unit</label>
+          <input
+            className="form-control w-75"
+            {...register("unit", { required: "Unit is required" })}
+          />
           {errors.unit && <span>{errors.unit.message}</span>}
         </div>
-        <div>
-          <label>Dimensions</label>
+        <div className="my-3">
+          <label className="form-label">Dimensions</label>
           <input
+            className="form-control w-75"
             {...register("dimensions", { required: "Dimensions are required" })}
           />
           {errors.dimensions && <span>{errors.dimensions.message}</span>}
         </div>
-        <div>
-          <label>Weight</label>
+        <div className="my-3">
+          <label className="form-label">Weight</label>
           <input
+            className="form-control w-75"
             type="number"
             {...register("weight", { required: "Weight is required" })}
           />
           {errors.weight && <span>{errors.weight.message}</span>}
         </div>
-        <div>
-          <label>Manufacturer</label>
+        <div className="my-3">
+          <label className="form-label">Manufacturer</label>
           <input
+            className="form-control w-75"
             {...register("manufacturer", {
               required: "Manufacturer is required",
             })}
           />
           {errors.manufacturer && <span>{errors.manufacturer.message}</span>}
         </div>
-        <div>
-          <label>Brand</label>
+        <div className="my-3">
+          <label className="form-label">Brand</label>
           <input
+            className="form-control w-75"
             {...register("brand", {
               required: "Brand is required",
             })}
           />
           {errors.brand && <span>{errors.brand.message}</span>}
         </div>
-        <div>
-          <label>Selling Price</label>
+        <div className="my-3">
+          <label className="form-label">Selling Price</label>
           <input
+            className="form-control w-75"
             type="number"
             {...register("sellingPrice", {
               required: "Selling Price is required",
@@ -97,9 +107,10 @@ const ItemForm = () => {
           />
           {errors.sellingPrice && <span>{errors.sellingPrice.message}</span>}
         </div>
-        <div>
-          <label>Cost Price</label>
+        <div className="my-3">
+          <label className="form-label">Cost Price</label>
           <input
+            className="form-control w-75"
             type="number"
             {...register("costPrice", {
               required: "Cost Price is required",
@@ -107,18 +118,20 @@ const ItemForm = () => {
           />
           {errors.costPrice && <span>{errors.costPrice.message}</span>}
         </div>
-        <div>
-          <label>Description</label>
+        <div className="my-3">
+          <label className="form-label">Description</label>
           <input
+            className="form-control w-75"
             {...register("description", {
               required: "Description is required",
             })}
           />
           {errors.description && <span>{errors.description.message}</span>}
         </div>
-        <div>
-          <label>Opening Stock</label>
+        <div className="my-3">
+          <label className="form-label">Opening Stock</label>
           <input
+            className="form-control w-75"
             type="number"
             {...register("openingStock", {
               required: "Opening Stock is required",
@@ -126,9 +139,10 @@ const ItemForm = () => {
           />
           {errors.openingStock && <span>{errors.openingStock.message}</span>}
         </div>
-        <div>
-          <label>Reorder Point</label>
+        <div className="my-3">
+          <label className="form-label">Reorder Point</label>
           <input
+            className="form-control w-75"
             type="number"
             {...register("reorderPoint", {
               required: "Reorder Point is required",
@@ -136,9 +150,10 @@ const ItemForm = () => {
           />
           {errors.reorderPoint && <span>{errors.reorderPoint.message}</span>}
         </div>
-        <div>
-          <label>Preferred Vendor</label>
+        <div className="my-3">
+          <label className="form-label">Preferred Vendor</label>
           <input
+            className="form-control w-75"
             {...register("preferredVendor", {
               required: "Preferred Vendor is required",
             })}
@@ -147,9 +162,10 @@ const ItemForm = () => {
             <span>{errors.preferredVendor.message}</span>
           )}
         </div>
-        <div>
-          <label>Item Group</label>
+        <div className="my-3">
+          <label className="form-label">Item Group</label>
           <select
+            className="form-select w-75"
             {...register("itemGroup", { required: "Item Group is required" })}
           >
             <option value="">Select an item group</option>
@@ -164,7 +180,15 @@ const ItemForm = () => {
           </select>
           {errors.itemGroup && <span>{errors.itemGroup.message}</span>}
         </div>
-        <button type="submit">Add item</button>
+        {success && (
+          <div className="alert alert-success w-75 text-center">{success}</div>
+        )}
+        {error && (
+          <div className="alert alert-danger w-75 text-center">{error}</div>
+        )}
+        <button type="submit" className="btn bg-primary mb-3">
+          Add item
+        </button>
       </form>
     </div>
   );
