@@ -152,7 +152,7 @@ const ItemForm = () => {
           <select
             {...register("itemGroup", { required: "Item Group is required" })}
           >
-            <option value="">Select a item group</option>
+            <option value="">Select an item group</option>
             {itemGroups &&
               itemGroups.map((itemGrp) => {
                 return (

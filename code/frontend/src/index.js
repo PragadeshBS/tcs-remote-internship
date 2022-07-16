@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import { ItemsContextProvider } from "./context/ItemsContext";
 import { ItemGroupsContextProvider } from "./context/ItemGroupsContext";
+import { AdjustmentsContextProvider } from "./context/AdjustmentsContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ItemsContextProvider>
       <ItemGroupsContextProvider>
-        <App />
+        <AdjustmentsContextProvider>
+          <App />
+        </AdjustmentsContextProvider>
       </ItemGroupsContextProvider>
     </ItemsContextProvider>
   </React.StrictMode>

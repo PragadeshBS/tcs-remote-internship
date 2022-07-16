@@ -1,9 +1,25 @@
-const getAdjustments = (req, res) => {
-  return res.json({ msg: "get all adjustments" });
+const Adjustment = require("../models/adjustmentModel");
+
+const getAdjustments = async (req, res) => {
+  const adjustments = await Adjustment.find({}).sort({ createdAt: -1 });
+  res.json(adjustments);
 };
 
-const addAdjustment = (req, res) => {
-  return res.json({ msg: "add a new adjustment" });
+const addAdjustment = async (req, res) => {
+  const { mode, refNo, date, reason, description, item } = req.body;
+  try {
+    const newAdjustment = await Adjustment.create({
+      mode,
+      refNo,
+      date,
+      reason,
+      description,
+      item,
+    });
+    res.status(200).json(newAdjustment);
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
 };
 
 module.exports = {

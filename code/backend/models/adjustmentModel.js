@@ -6,8 +6,8 @@ const adjustmentSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    referenceNumber: {
-      type: Number,
+    refNo: {
+      type: String,
       required: true,
     },
     date: {
