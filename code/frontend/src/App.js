@@ -7,6 +7,9 @@ import ItemGroups from "./pages/inventory/ItemGroups";
 import Items from "./pages/inventory/Items";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import Customers from "./pages/sales/Customers";
+import CustomerEdit from "./pages/sales/CustomerEdit";
+import AddCustomer from "./pages/sales/AddCustomer";
 
 function App() {
   return (
@@ -26,6 +29,11 @@ function App() {
                 <Route path="item-groups" element={<ItemGroups />} />
                 <Route path="adjustments" element={<Adjustments />} />
                 <Route path="adjustments/add" element={<AdjustmentForm />} />
+              </Route>
+              <Route path="/sales">
+                <Route path="customers" element={<Customers />} />
+                <Route path="customers/edit/:id" element={<CustomerEdit />} />
+                <Route path="customers/add" element={<AddCustomer />} />
               </Route>
             </Routes>
           </div>

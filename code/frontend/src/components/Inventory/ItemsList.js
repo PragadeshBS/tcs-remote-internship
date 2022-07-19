@@ -30,7 +30,6 @@ const ItemsList = () => {
           <tbody>
             {items &&
               items.map((item, idx) => {
-                console.log(item.itemGroup);
                 return (
                   <tr key={item._id}>
                     <td>{idx + 1}</td>

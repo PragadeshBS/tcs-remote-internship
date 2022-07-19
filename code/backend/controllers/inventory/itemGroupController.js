@@ -1,4 +1,4 @@
-const ItemGroup = require("../models/itemGroupModel");
+const ItemGroup = require("../../models/inventory/itemGroupModel");
 
 const getItemGroups = async (req, res) => {
   const itemGroups = await ItemGroup.find({}).sort({ createdAt: -1 });

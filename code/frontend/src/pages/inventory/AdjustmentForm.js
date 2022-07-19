@@ -21,7 +21,6 @@ const AdjustmentForm = () => {
 
   useEffect(() => {
     const fetchItems = () => {
-      console.log();
       axios.get("/api/inventory/items").then((response) => {
         dispatch({ type: "SET_ITEMS", payload: response.data });
         setLoading(false);

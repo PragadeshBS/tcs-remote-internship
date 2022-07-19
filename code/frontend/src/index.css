@@ -25,3 +25,12 @@
 .item-group-form {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
+.primary {
+  color: var(--primary) !important;
+}
+
+.normal-link {
+  text-decoration: none !important;
+  color: #212529 !important;
+}
