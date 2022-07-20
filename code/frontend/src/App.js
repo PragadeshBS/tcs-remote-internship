@@ -10,6 +10,9 @@ import Sidebar from "./components/Sidebar";
 import Customers from "./pages/sales/Customers";
 import CustomerEdit from "./pages/sales/CustomerEdit";
 import AddCustomer from "./pages/sales/AddCustomer";
+import SalesOrders from "./pages/sales/SalesOrders";
+import AddSalesOrder from "./pages/sales/AddSalesOrder";
+import SalesDetail from "./pages/sales/SalesDetails";
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
                 <Route path="customers" element={<Customers />} />
                 <Route path="customers/edit/:id" element={<CustomerEdit />} />
                 <Route path="customers/add" element={<AddCustomer />} />
+                <Route path="salesorders" element={<SalesOrders />} />
+                <Route path="salesorders/:id" element={<SalesDetail />} />
+                <Route path="salesorders/add" element={<AddSalesOrder />} />
               </Route>
             </Routes>
           </div>

@@ -18,7 +18,7 @@ const CustomerEdit = () => {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +43,7 @@ const CustomerEdit = () => {
 
   return (
     <div>
+      <h1 className="display-6">Update customer details</h1>
       {error && <div>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>

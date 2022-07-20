@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AddCustomer = () => {
   const [customer, setCustomer] = useState({});
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +30,7 @@ const AddCustomer = () => {
           <label>Customer Name:</label>
           <input
             required={true}
-            value={customer.customerName}
+            value={customer.customerName || ""}
             onChange={(e) =>
               setCustomer({ ...customer, customerName: e.target.value })
             }
@@ -42,7 +40,7 @@ const AddCustomer = () => {
           <label>Company:</label>
           <input
             required={true}
-            value={customer.company}
+            value={customer.company || ""}
             onChange={(e) =>
               setCustomer({ ...customer, company: e.target.value })
             }
@@ -52,7 +50,7 @@ const AddCustomer = () => {
           <label>Mobile:</label>
           <input
             required={true}
-            value={customer.mobile}
+            value={customer.mobile || ""}
             onChange={(e) =>
               setCustomer({ ...customer, mobile: e.target.value })
             }
@@ -62,13 +60,13 @@ const AddCustomer = () => {
           <label>Email:</label>
           <input
             required={true}
-            value={customer.email}
+            value={customer.email || ""}
             onChange={(e) =>
               setCustomer({ ...customer, email: e.target.value })
             }
           />
         </div>
-        <button type="submit">Update</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );

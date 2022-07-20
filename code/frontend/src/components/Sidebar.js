@@ -12,7 +12,10 @@ const Sidebar = () => {
     },
     {
       submodule: "Sales",
-      links: [{ title: "Customers", to: "/sales/customers" }],
+      links: [
+        { title: "Customers", to: "/sales/customers" },
+        { title: "Sales Orders", to: "/sales/salesorders" },
+      ],
     },
   ];
   return (
