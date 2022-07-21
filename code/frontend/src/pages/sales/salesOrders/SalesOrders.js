@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SalesOrderList from "../../components/sales/SalesOrderList";
+import SalesOrderList from "../../../components/sales/SalesOrderList";
 
 const SalesOrders = () => {
   return (

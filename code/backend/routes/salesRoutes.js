@@ -6,6 +6,10 @@ const {
   getCustomer,
 } = require("../controllers/sales/customersController");
 const {
+  createPackage,
+  getPackages,
+} = require("../controllers/sales/packageController");
+const {
   getSalesOrders,
   addSalesOrder,
   getSalesOrder,
@@ -23,5 +27,9 @@ router.patch("/customers/:id", updateCustomer);
 router.get("/salesorders", getSalesOrders);
 router.get("/salesorders/:id", getSalesOrder);
 router.post("/salesorders", addSalesOrder);
+
+// package routes
+router.get("/packages", getPackages);
+router.post("/packages", createPackage);
 
 module.exports = router;

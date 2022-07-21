@@ -7,12 +7,15 @@ import ItemGroups from "./pages/inventory/ItemGroups";
 import Items from "./pages/inventory/Items";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Customers from "./pages/sales/Customers";
-import CustomerEdit from "./pages/sales/CustomerEdit";
-import AddCustomer from "./pages/sales/AddCustomer";
-import SalesOrders from "./pages/sales/SalesOrders";
-import AddSalesOrder from "./pages/sales/AddSalesOrder";
-import SalesDetail from "./pages/sales/SalesDetails";
+import Customers from "./pages/sales/customers/Customers";
+import CustomerEdit from "./pages/sales/customers/CustomerEdit";
+import AddCustomer from "./pages/sales/customers/AddCustomer";
+import SalesOrders from "./pages/sales/salesOrders/SalesOrders";
+import AddSalesOrder from "./pages/sales/salesOrders/AddSalesOrder";
+import SalesDetail from "./pages/sales/salesOrders/SalesDetails";
+import Packages from "./pages/sales/pkgs/Packages";
+import AddPackage from "./pages/sales/pkgs/AddPackage";
+import DeliveryChallans from "./pages/sales/challans/DeliveryChallans";
 
 function App() {
   return (
@@ -40,6 +43,12 @@ function App() {
                 <Route path="salesorders" element={<SalesOrders />} />
                 <Route path="salesorders/:id" element={<SalesDetail />} />
                 <Route path="salesorders/add" element={<AddSalesOrder />} />
+                <Route path="packages" element={<Packages />} />
+                <Route path="packages/add" element={<AddPackage />} />
+                <Route
+                  path="delivery-challans"
+                  element={<DeliveryChallans />}
+                />
               </Route>
             </Routes>
           </div>

@@ -15,6 +15,7 @@ const Sidebar = () => {
       links: [
         { title: "Customers", to: "/sales/customers" },
         { title: "Sales Orders", to: "/sales/salesorders" },
+        { title: "Packages", to: "/sales/packages" },
       ],
     },
   ];

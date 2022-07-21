@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { subDays } from "date-fns";
+import { format, subDays } from "date-fns";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -87,13 +87,21 @@ const SalesOrderList = () => {
                         {salesOrder.refNo}
                       </Link>
                     </td>
-                    <td>{salesOrder.orderDate}</td>
+                    <td>
+                      {format(new Date(salesOrder.orderDate), "dd MMM yyyy")}
+                    </td>
                     <td>{salesOrder.customer.customerName}</td>
                     <td>{salesOrder.orderStatus}</td>
-                    <td>{salesOrder.expectedDeliveryDate}</td>
+                    <td>
+                      {format(
+                        new Date(salesOrder.expectedDeliveryDate),
+                        "dd MMM yyyy"
+                      )}
+                    </td>
                   </tr>
                 );
               }
+              return <tr key={idx}></tr>;
             })}
         </tbody>
       </table>

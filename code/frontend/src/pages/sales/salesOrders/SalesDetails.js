@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { format } from "date-fns";
 
 const SalesDetail = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const SalesDetail = () => {
       });
     };
     fetchSalesOrder();
-  }, []);
+  }, [id]);
 
   if (loading) {
     return <div>Loading details...</div>;
@@ -33,17 +34,19 @@ const SalesDetail = () => {
 
       <div className="my-2">
         <span className="h4 me-4">Order Date:</span>
-        <span>{salesOrder.orderDate}</span>
+        <span>{format(new Date(salesOrder.orderDate), "dd MMM yyyy")}</span>
       </div>
 
       <div className="my-2">
         <span className="h4 me-4">Shipment Date:</span>
-        <span>{salesOrder.shipmentDate}</span>
+        <span>{format(new Date(salesOrder.shipmentDate), "dd MMM yyyy")}</span>
       </div>
 
       <div className="my-2">
         <span className="h4 me-4">Expected Delivery Date:</span>
-        <span>{salesOrder.expectedDeliveryDate}</span>
+        <span>
+          {format(new Date(salesOrder.expectedDeliveryDate), "dd MMM yyyy")}
+        </span>
       </div>
 
       <div className="my-2">
