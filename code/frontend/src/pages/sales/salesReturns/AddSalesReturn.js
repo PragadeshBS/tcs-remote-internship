@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import DatePicker from "react-date-picker";
 
-const AddPackage = () => {
+const AddSalesReturn = () => {
   const [loading, setLoading] = useState(true);
-  const [pkg, setPkg] = useState({});
+  const [salesReturn, setSalesReturn] = useState({});
   const [salesOrders, setSalesOrders] = useState([]);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -18,9 +19,9 @@ const AddPackage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("/api/sales/packages", pkg)
+      .post("/api/sales/sales-returns", salesReturn)
       .then(() => {
-        setSuccess("Package added successfully");
+        setSuccess("Sales return added successfully");
         setError("");
       })
       .catch((error) => {
@@ -35,37 +36,37 @@ const AddPackage = () => {
 
   return (
     <div>
-      <h1 className="display-6">Add a new Package</h1>
+      <h1 className="display-6">Add a new Sales return</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Package No.:</label>
-          <input
-            required={true}
-            value={pkg.packageNo || ""}
-            onChange={(e) => setPkg({ ...pkg, packageNo: e.target.value })}
-          />
-        </div>
-        <div>
           <label>Select a sales order ref. no.</label>
           <select
             required={true}
-            value={pkg.salesOrder}
-            onChange={(e) => setPkg({ ...pkg, salesOrder: e.target.value })}
+            value={salesReturn.salesOrder}
+            onChange={(e) =>
+              setSalesReturn({ ...salesReturn, salesOrder: e.target.value })
+            }
           >
             <option value="">Select a sales order</option>
             {salesOrders &&
               salesOrders.map((salesOrder) => {
-                if (salesOrder.orderStatus === "Order Placed") {
-                  return (
-                    <option key={salesOrder._id} value={salesOrder._id}>
-                      {salesOrder.refNo}
-                    </option>
-                  );
-                }
+                return (
+                  <option key={salesOrder._id} value={salesOrder._id}>
+                    {salesOrder.refNo}
+                  </option>
+                );
               })}
           </select>
+        </div>
+        <div>
+          <label>Date:</label>
+          <DatePicker
+            required={true}
+            value={salesReturn.date || ""}
+            onChange={(e) => setSalesReturn({ ...salesReturn, date: e })}
+          />
         </div>
 
         <button type="submit">Add</button>
@@ -73,4 +74,4 @@ const AddPackage = () => {
     </div>
   );
 };
-export default AddPackage;
+export default AddSalesReturn;

@@ -16,6 +16,20 @@ import SalesDetail from "./pages/sales/salesOrders/SalesDetails";
 import Packages from "./pages/sales/pkgs/Packages";
 import AddPackage from "./pages/sales/pkgs/AddPackage";
 import DeliveryChallans from "./pages/sales/challans/DeliveryChallans";
+import AddDeliveryChallan from "./pages/sales/challans/AddDeliveryChallan";
+import Invoices from "./pages/sales/invoices/Invoices";
+import AddInvoice from "./pages/sales/invoices/AddInvoice";
+import PackageDetail from "./pages/sales/pkgs/PackageDetail";
+import DeliveryChallanDetail from "./pages/sales/challans/DeliveryChallanDetail";
+import InvoiceDetail from "./pages/sales/invoices/InvoiceDetail";
+import Payments from "./pages/sales/payments/Payments";
+import AddPayment from "./pages/sales/payments/AddPayment";
+import SalesReturns from "./pages/sales/salesReturns/SalesReturns";
+import AddSalesReturn from "./pages/sales/salesReturns/AddSalesReturn";
+import SalesReturnDetail from "./pages/sales/salesReturns/SalesReturnDetail";
+import CreditNotes from "./pages/sales/creditNotes/CreditNotes";
+import AddCreditNotes from "./pages/sales/creditNotes/AddCreditNotes";
+import CreditNotesDetail from "./pages/sales/creditNotes/CreditNotesDetail";
 
 function App() {
   return (
@@ -44,11 +58,37 @@ function App() {
                 <Route path="salesorders/:id" element={<SalesDetail />} />
                 <Route path="salesorders/add" element={<AddSalesOrder />} />
                 <Route path="packages" element={<Packages />} />
+                <Route path="packages/:id" element={<PackageDetail />} />
                 <Route path="packages/add" element={<AddPackage />} />
                 <Route
                   path="delivery-challans"
                   element={<DeliveryChallans />}
                 />
+                <Route
+                  path="delivery-challans/:id"
+                  element={<DeliveryChallanDetail />}
+                />
+                <Route
+                  path="delivery-challan/add"
+                  element={<AddDeliveryChallan />}
+                />
+                <Route path="invoices" element={<Invoices />} />
+                <Route path="invoices/:id" element={<InvoiceDetail />} />
+                <Route path="invoices/add" element={<AddInvoice />} />
+                <Route path="payments" element={<Payments />} />
+                <Route path="payments/add" element={<AddPayment />} />
+                <Route path="sales-returns" element={<SalesReturns />} />
+                <Route
+                  path="sales-returns/:id"
+                  element={<SalesReturnDetail />}
+                />
+                <Route path="sales-returns/add" element={<AddSalesReturn />} />
+                <Route path="credit-notes" element={<CreditNotes />} />
+                <Route
+                  path="credit-notes/:id"
+                  element={<CreditNotesDetail />}
+                />
+                <Route path="credit-notes/add" element={<AddCreditNotes />} />
               </Route>
             </Routes>
           </div>

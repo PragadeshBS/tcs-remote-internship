@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 
 const PackagesList = () => {
   const [loading, setLoading] = useState(true);
@@ -8,7 +9,6 @@ const PackagesList = () => {
   useEffect(() => {
     axios.get("/api/sales/packages").then((res) => {
       setPackages(res.data);
-      console.log(res.data);
       setLoading(false);
     });
   }, []);
@@ -35,7 +35,11 @@ const PackagesList = () => {
               return (
                 <tr key={pkg._id}>
                   <td>{idx + 1}</td>
-                  <td>{pkg.packageNo}</td>
+                  <td>
+                    <Link to={`/sales/packages/${pkg._id}`}>
+                      {pkg.packageNo}
+                    </Link>
+                  </td>
                   <td>{pkg.salesOrder.refNo}</td>
                   <td>
                     {format(

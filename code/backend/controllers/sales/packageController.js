@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Package = require("../../models/sales/packageModel");
 const SalesOrder = require("../../models/sales/salesOrderModel");
 
@@ -18,4 +19,24 @@ const getPackages = async (req, res) => {
   res.status(200).json(packages);
 };
 
-module.exports = { createPackage, getPackages };
+const getPackage = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ error: "Invalid package Id" });
+  }
+  const pkg = await Package.findById(id).populate({
+    path: "salesOrder",
+    populate: [
+      {
+        path: "customer",
+      },
+      { path: "items" },
+    ],
+  });
+  if (!pkg) {
+    return res.status(400).json({ error: "No such package" });
+  }
+  res.status(200).json(pkg);
+};
+
+module.exports = { createPackage, getPackage, getPackages };
