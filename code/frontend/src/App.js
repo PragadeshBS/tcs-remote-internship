@@ -30,6 +30,18 @@ import SalesReturnDetail from "./pages/sales/salesReturns/SalesReturnDetail";
 import CreditNotes from "./pages/sales/creditNotes/CreditNotes";
 import AddCreditNotes from "./pages/sales/creditNotes/AddCreditNotes";
 import CreditNotesDetail from "./pages/sales/creditNotes/CreditNotesDetail";
+import Vendors from "./pages/purchases/vendors/Vendors";
+import AddVendor from "./pages/purchases/vendors/AddVendor";
+import EditVendor from "./pages/purchases/vendors/EditVendor";
+import PurchaseOrders from "./pages/purchases/purchaseOrders/PurchaseOrders";
+import AddPurchaseOrder from "./pages/purchases/purchaseOrders/AddPurchaseOrder";
+import PurchaseDetail from "./pages/purchases/purchaseOrders/PurchaseOrderDetail";
+import Bills from "./pages/purchases/bills/Bills";
+import BillDetail from "./pages/purchases/bills/BillDetail";
+import AddBill from "./pages/purchases/bills/AddBill";
+import VendorCredits from "./pages/purchases/vendorCredits/VendorCredits";
+import AddVendorCredit from "./pages/purchases/vendorCredits/AddVendorCredit";
+import VendorCreditDetails from "./pages/purchases/vendorCredits/VendorCreditDetails";
 
 function App() {
   return (
@@ -89,6 +101,32 @@ function App() {
                   element={<CreditNotesDetail />}
                 />
                 <Route path="credit-notes/add" element={<AddCreditNotes />} />
+              </Route>
+              <Route path="purchases">
+                <Route path="vendors" element={<Vendors />} />
+                <Route path="vendors/add" element={<AddVendor />} />
+                <Route path="vendors/edit/:id" element={<EditVendor />} />
+                <Route path="purchase-orders" element={<PurchaseOrders />} />
+                <Route
+                  path="purchase-orders/:id"
+                  element={<PurchaseDetail />}
+                />
+                <Route
+                  path="purchase-orders/add"
+                  element={<AddPurchaseOrder />}
+                />
+                <Route path="bills" element={<Bills />} />
+                <Route path="bills/:id" element={<BillDetail />} />
+                <Route path="bills/add" element={<AddBill />} />
+                <Route path="vendor-credits" element={<VendorCredits />} />
+                <Route
+                  path="vendor-credits/:id"
+                  element={<VendorCreditDetails />}
+                />
+                <Route
+                  path="vendor-credits/add"
+                  element={<AddVendorCredit />}
+                />
               </Route>
             </Routes>
           </div>

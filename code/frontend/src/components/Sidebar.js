@@ -23,17 +23,38 @@ const Sidebar = () => {
         { title: "Credit Notes", to: "/sales/credit-notes" },
       ],
     },
+    {
+      submodule: "Purchases",
+      links: [
+        { title: "Vendors", to: "/purchases/vendors" },
+        { title: "Purchase Orders", to: "/purchases/purchase-orders" },
+        { title: "Bills & Payments", to: "/purchases/bills" },
+        { title: "Vendor Credits", to: "/purchases/vendor-credits" },
+      ],
+    },
   ];
   return (
     <div>
-      <ul className="list-group list-group-flush">
+      <ul
+        className="list-group list-group-flush"
+        style={{ listStyleType: "none" }}
+      >
         {links.map((link, idx) => {
           return (
-            <div key={idx}>
-              <h3 className="px-3 mt-2 text-center">{link.submodule}</h3>
+            <div
+              key={idx}
+              className="my-1 border rounded py-3 px-2"
+              style={{ boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px" }}
+            >
+              <h3 className="px-3 text-center">{link.submodule}</h3>
               {link.links.map((link, idx) => (
-                <Link key={idx} to={link.to} className="sidebar-links">
-                  <li className="p-2">{link.title}</li>
+                <Link
+                  key={idx}
+                  to={link.to}
+                  className="sidebar-links"
+                  style={{ color: "#d1d1d1" }}
+                >
+                  <li className="p-1">{link.title}</li>
                 </Link>
               ))}
             </div>

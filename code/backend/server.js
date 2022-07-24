@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const inventoryRoutes = require("./routes/inventoryRoutes");
 const salesRoutes = require("./routes/salesRoutes");
+const purchasesRoutes = require("./routes/purchasesRoutes");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
 
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/sales", salesRoutes);
+app.use("/api/purchases", purchasesRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
