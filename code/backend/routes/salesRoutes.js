@@ -14,7 +14,7 @@ const {
   getSalesOrders,
   addSalesOrder,
   getSalesOrder,
-} = require("../controllers/sales/salesorderController");
+} = require("../controllers/sales/salesOrderController");
 const {
   getDeliveryChallans,
   createDeliveryChallan,
