@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Home/Dashboard";
 import AdjustmentForm from "./pages/inventory/AdjustmentForm";
 import Adjustments from "./pages/inventory/Adjustments";
 import ItemForm from "./pages/inventory/ItemForm";
@@ -42,6 +42,7 @@ import AddBill from "./pages/purchases/bills/AddBill";
 import VendorCredits from "./pages/purchases/vendorCredits/VendorCredits";
 import AddVendorCredit from "./pages/purchases/vendorCredits/AddVendorCredit";
 import VendorCreditDetails from "./pages/purchases/vendorCredits/VendorCreditDetails";
+import Reports from "./pages/reports/Reports";
 
 function App() {
   return (
@@ -128,6 +129,7 @@ function App() {
                   element={<AddVendorCredit />}
                 />
               </Route>
+              <Route path="reports" element={<Reports />} />
             </Routes>
           </div>
         </div>
