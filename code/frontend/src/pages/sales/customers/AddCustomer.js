@@ -23,14 +23,15 @@ const AddCustomer = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1 className="display-6">Add a new customer</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Customer Name:</label>
+          <label className="form-label">Customer Name:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={customer.customerName || ""}
             onChange={(e) =>
@@ -39,8 +40,9 @@ const AddCustomer = () => {
           />
         </div>
         <div>
-          <label>Company:</label>
+          <label className="form-label my-2">Company:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={customer.company || ""}
             onChange={(e) =>
@@ -49,8 +51,9 @@ const AddCustomer = () => {
           />
         </div>
         <div>
-          <label>Mobile:</label>
+          <label className="form-label my-2">Mobile:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={customer.mobile || ""}
             onChange={(e) =>
@@ -59,8 +62,9 @@ const AddCustomer = () => {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label className="form-label my-2">Email:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={customer.email || ""}
             onChange={(e) =>
@@ -68,7 +72,9 @@ const AddCustomer = () => {
             }
           />
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-primary my-2">
+          Add
+        </button>
       </form>
     </div>
   );

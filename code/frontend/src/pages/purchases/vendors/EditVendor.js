@@ -47,7 +47,7 @@ const EditVendor = () => {
       {error && <div>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Vendor Name:</label>
+          <label className="form-label">Vendor Name:</label>
           <input
             required={true}
             value={vendor.vendorName}
@@ -57,7 +57,7 @@ const EditVendor = () => {
           />
         </div>
         <div>
-          <label>Company:</label>
+          <label className="form-label">Company:</label>
           <input
             required={true}
             value={vendor.company}
@@ -65,7 +65,7 @@ const EditVendor = () => {
           />
         </div>
         <div>
-          <label>Mobile:</label>
+          <label className="form-label">Mobile:</label>
           <input
             required={true}
             value={vendor.mobile}
@@ -73,7 +73,7 @@ const EditVendor = () => {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label className="form-label">Email:</label>
           <input
             required={true}
             value={vendor.email}
@@ -81,7 +81,7 @@ const EditVendor = () => {
           />
         </div>
         <div>
-          <label>Website:</label>
+          <label className="form-label">Website:</label>
           <input
             required={true}
             value={vendor.website}

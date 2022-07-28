@@ -62,7 +62,7 @@ const AddPurchaseOrder = () => {
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Ref. No.:</label>
+          <label className="form-label">Ref. No.:</label>
           <input
             required={true}
             value={purchaseOrder.refNo || ""}
@@ -72,7 +72,7 @@ const AddPurchaseOrder = () => {
           />
         </div>
         <div>
-          <label>Order Date:</label>
+          <label className="form-label">Order Date:</label>
           <DatePicker
             required={true}
             value={purchaseOrder.orderDate || ""}
@@ -82,7 +82,7 @@ const AddPurchaseOrder = () => {
           />
         </div>
         <div>
-          <label>Vendor:</label>
+          <label className="form-label">Vendor:</label>
           <select
             value={purchaseOrder.vendor || ""}
             onChange={(e) =>
@@ -157,7 +157,9 @@ const AddPurchaseOrder = () => {
             </tbody>
           </table>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

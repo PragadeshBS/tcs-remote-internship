@@ -56,14 +56,15 @@ const AddSalesOrder = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 className="display-6">Add a new Sales order</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Ref. No.:</label>
+          <label className="form-label">Ref. No.:</label>
           <input
+            className="form-control w-75 my-2"
             required={true}
             value={salesOrder.refNo || ""}
             onChange={(e) =>
@@ -72,24 +73,27 @@ const AddSalesOrder = () => {
           />
         </div>
         <div>
-          <label>Order Date:</label>
+          <label className="form-label d-block mt-3">Order Date:</label>
           <DatePicker
+            className="w-50"
             required={true}
             value={salesOrder.orderDate || ""}
             onChange={(e) => setSalesOrder({ ...salesOrder, orderDate: e })}
           />
         </div>
         <div>
-          <label>Shipment Date:</label>
+          <label className="form-label d-block mt-3">Shipment Date:</label>
           <DatePicker
+            className="w-50"
             required={true}
             value={salesOrder.shipmentDate || ""}
             onChange={(e) => setSalesOrder({ ...salesOrder, shipmentDate: e })}
           />
         </div>
         <div>
-          <label>Expected Delivery Date:</label>
+          <label className="form-label d-block mt-3">Expected Delivery Date:</label>
           <DatePicker
+            className="w-50 mb-3"
             required={true}
             value={salesOrder.expectedDeliveryDate || ""}
             onChange={(e) =>
@@ -98,8 +102,9 @@ const AddSalesOrder = () => {
           />
         </div>
         <div>
-          <label>Customer:</label>
+          <label className="form-label">Customer:</label>
           <select
+            className="form-select w-75 mb-2"
             value={salesOrder.customer || ""}
             onChange={(e) =>
               setSalesOrder({ ...salesOrder, customer: e.target.value })
@@ -116,39 +121,45 @@ const AddSalesOrder = () => {
           </select>
         </div>
         <div>
-          <h3>Items in this order</h3>
+          <h3 className="mt-3">Items in this order</h3>
           <div>
-            <div>
-              <select
-                value={curItem}
-                onChange={(e) => setCurItem(e.target.value)}
-              >
-                <option value="">Choose an item to add</option>
-                {items &&
-                  items.map((item) => {
-                    if (!selectedItems.includes(item._id)) {
-                      return (
-                        <option key={item._id} value={item._id}>
-                          {item.name}
-                        </option>
-                      );
-                    }
-                  })}
-              </select>
-              <div
-                className="btn btn-secondary mx-3"
-                onClick={() => {
-                  if (curItem) {
-                    setSelectedItems([...selectedItems, curItem]);
-                    setCurItem("");
-                  }
-                }}
-              >
-                Add Item
+            <div className="row">
+              <div className="col-7">
+                <select
+                  value={curItem}
+                  className="form-select w-50 my-2"
+                  onChange={(e) => setCurItem(e.target.value)}
+                >
+                  <option value="">Choose an item to add</option>
+                  {items &&
+                    items.map((item) => {
+                      if (!selectedItems.includes(item._id)) {
+                        return (
+                          <option key={item._id} value={item._id}>
+                            {item.name}
+                          </option>
+                        );
+                      }
+                    })}
+                </select>
               </div>
+              <div className="col-2">
+                <span
+                  className="mx-3 btn btn-secondary"
+                  onClick={() => {
+                    if (curItem) {
+                      setSelectedItems([...selectedItems, curItem]);
+                      setCurItem("");
+                    }
+                  }}
+                >
+                  Add Item
+                </span>
+              </div>
+              <div className="col-3"></div>
             </div>
           </div>
-          <table className="table">
+          <table className="table mt-3">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -173,7 +184,7 @@ const AddSalesOrder = () => {
             </tbody>
           </table>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">Add sales order</button>
       </form>
     </div>
   );

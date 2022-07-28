@@ -68,30 +68,33 @@ const AddDeliveryChallan = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 className="display-6">Add a new Delivery Challan</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Ref. No.:</label>
+          <label className="form-label">Ref. No.:</label>
           <input
+            className="mb-3 form-control w-50"
             required={true}
             value={challan.refNo}
             onChange={(e) => setChallan({ ...challan, refNo: e.target.value })}
           />
         </div>
         <div>
-          <label>Delivery Challan Date:</label>
+          <label className="form-label">Delivery Challan Date:</label>
           <DatePicker
+            className="mb-3 w-50 d-block"
             required={true}
             value={challan.orderDate}
             onChange={(e) => setChallan({ ...challan, orderDate: e })}
           />
         </div>
         <div>
-          <label>Delivery Challan Type</label>
+          <label className="form-label">Delivery Challan Type</label>
           <select
+            className="form-select mb-3 w-50"
             value={challan.deliveryChallanType}
             required={true}
             onChange={(e) =>
@@ -105,8 +108,9 @@ const AddDeliveryChallan = () => {
           </select>
         </div>
         <div>
-          <label>Customer:</label>
+          <label className="form-label">Customer:</label>
           <select
+            className="form-select w-50"
             value={challan.customer}
             onChange={(e) =>
               setChallan({ ...challan, customer: e.target.value })
@@ -123,39 +127,44 @@ const AddDeliveryChallan = () => {
           </select>
         </div>
         <div>
-          <h3>Items in this order</h3>
+          <h3 className="mt-3">Items in this order</h3>
           <div>
-            <div>
-              <select
-                value={curItem}
-                onChange={(e) => setCurItem(e.target.value)}
-              >
-                <option value="">Choose an item to add</option>
-                {items &&
-                  items.map((item) => {
-                    if (!selectedItems.includes(item._id)) {
-                      return (
-                        <option key={item._id} value={item._id}>
-                          {item.name}
-                        </option>
-                      );
+            <div className="row">
+              <div className="col-6">
+                <select
+                className="form-select"
+                  value={curItem}
+                  onChange={(e) => setCurItem(e.target.value)}
+                >
+                  <option value="">Choose an item to add</option>
+                  {items &&
+                    items.map((item) => {
+                      if (!selectedItems.includes(item._id)) {
+                        return (
+                          <option key={item._id} value={item._id}>
+                            {item.name}
+                          </option>
+                        );
+                      }
+                    })}
+                </select>
+              </div>
+              <div className="col-2">
+                <div
+                  className="btn btn-secondary mx-3"
+                  onClick={() => {
+                    if (curItem) {
+                      setSelectedItems([...selectedItems, curItem]);
+                      setCurItem("");
                     }
-                  })}
-              </select>
-              <div
-                className="btn btn-secondary mx-3"
-                onClick={() => {
-                  if (curItem) {
-                    setSelectedItems([...selectedItems, curItem]);
-                    setCurItem("");
-                  }
-                }}
-              >
-                Add Item
+                  }}
+                >
+                  Add Item
+                </div>
               </div>
             </div>
           </div>
-          <table className="table">
+          <table className="table mt-3">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -180,7 +189,9 @@ const AddDeliveryChallan = () => {
             </tbody>
           </table>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

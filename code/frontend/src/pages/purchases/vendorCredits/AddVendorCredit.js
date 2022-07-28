@@ -76,7 +76,7 @@ const AddVendorCredit = () => {
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Credit note no.:</label>
+          <label className="form-label">Credit note no.:</label>
           <input
             required={true}
             value={vendorCredit.creditNoteNo}
@@ -86,7 +86,7 @@ const AddVendorCredit = () => {
           />
         </div>
         <div>
-          <label>Date:</label>
+          <label className="form-label">Date:</label>
           <DatePicker
             required={true}
             value={vendorCredit.date}
@@ -94,7 +94,7 @@ const AddVendorCredit = () => {
           />
         </div>
         <div>
-          <label>Vendor:</label>
+          <label className="form-label">Vendor:</label>
           <select
             value={vendorCredit.vendor}
             onChange={(e) =>
@@ -169,7 +169,9 @@ const AddVendorCredit = () => {
             </tbody>
           </table>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

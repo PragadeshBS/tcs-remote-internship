@@ -35,14 +35,15 @@ const AddPayment = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 className="display-6">Add a new Payment</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Payment. No.:</label>
+          <label className="form-label">Payment. No.:</label>
           <input
+            className="form-control w-50 mb-3"
             required={true}
             value={payment.paymentNo || ""}
             onChange={(e) =>
@@ -51,16 +52,18 @@ const AddPayment = () => {
           />
         </div>
         <div>
-          <label>Payment Date:</label>
+          <label className="form-label">Payment Date:</label>
           <DatePicker
+            className="w-50 d-block mb-3"
             required={true}
             value={payment.paymentDate || ""}
             onChange={(e) => setPayment({ ...payment, paymentDate: e })}
           />
         </div>
         <div>
-          <label>Payment Mode</label>
+          <label className="form-label">Payment Mode</label>
           <select
+            className="form-select w-50 mb-3"
             value={payment.paymentMode || ""}
             required={true}
             onChange={(e) =>
@@ -75,8 +78,9 @@ const AddPayment = () => {
           </select>
         </div>
         <div>
-          <label>Customer:</label>
+          <label className="form-label">Customer:</label>
           <select
+            className="form-select w-50 mb-3"
             value={payment.customer || ""}
             onChange={(e) =>
               setPayment({ ...payment, customer: e.target.value })
@@ -93,15 +97,18 @@ const AddPayment = () => {
           </select>
         </div>
         <div>
-          <label>Amount:</label>
+          <label className="form-label">Amount:</label>
           <input
+            className="form-control w-50"
             type="number"
             required={true}
             value={payment.amount || ""}
             onChange={(e) => setPayment({ ...payment, amount: e.target.value })}
           />
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success mt-3">
+          Add
+        </button>
       </form>
     </div>
   );

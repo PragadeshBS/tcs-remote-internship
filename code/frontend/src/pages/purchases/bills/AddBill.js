@@ -72,7 +72,7 @@ const AddBill = () => {
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Order. No.:</label>
+          <label className="form-label">Order. No.:</label>
           <input
             required={true}
             value={bill.orderNo || ""}
@@ -80,7 +80,7 @@ const AddBill = () => {
           />
         </div>
         <div>
-          <label>Bill Date:</label>
+          <label className="form-label">Bill Date:</label>
           <DatePicker
             required={true}
             value={bill.date || ""}
@@ -88,7 +88,7 @@ const AddBill = () => {
           />
         </div>
         <div>
-          <label>Vendor:</label>
+          <label className="form-label">Vendor:</label>
           <select
             value={bill.vendor || ""}
             onChange={(e) => setBill({ ...bill, vendor: e.target.value })}
@@ -161,7 +161,9 @@ const AddBill = () => {
             </tbody>
           </table>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

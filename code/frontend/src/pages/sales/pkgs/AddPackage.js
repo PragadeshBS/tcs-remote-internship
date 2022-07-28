@@ -34,22 +34,24 @@ const AddPackage = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 className="display-6">Add a new Package</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Package No.:</label>
+          <label className="form-label">Package No.:</label>
           <input
+            className="mb-3 form-control w-50"
             required={true}
             value={pkg.packageNo || ""}
             onChange={(e) => setPkg({ ...pkg, packageNo: e.target.value })}
           />
         </div>
         <div>
-          <label>Select a sales order ref. no.</label>
+          <label className="form-label">Select a sales order ref. no.</label>
           <select
+            className="mb-3 form-select w-50"
             required={true}
             value={pkg.salesOrder}
             onChange={(e) => setPkg({ ...pkg, salesOrder: e.target.value })}
@@ -68,7 +70,9 @@ const AddPackage = () => {
           </select>
         </div>
 
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

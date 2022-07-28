@@ -35,14 +35,15 @@ const AddCreditNotes = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 className="display-6">Add a new Credit Note</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Select a invoice order ref. no.</label>
+          <label className="form-label">Select a invoice order ref. no.</label>
           <select
+            className="form-select w-50 mb-3"
             required={true}
             value={creditNote.invoiceNo}
             onChange={(e) =>
@@ -61,8 +62,9 @@ const AddCreditNotes = () => {
           </select>
         </div>
         <div>
-          <label>Reason:</label>
+          <label className="form-label">Reason:</label>
           <input
+            className="form-control w-50 mb-3"
             required={true}
             value={creditNote.reason || ""}
             onChange={(e) =>
@@ -71,8 +73,9 @@ const AddCreditNotes = () => {
           />
         </div>
         <div>
-          <label>Date:</label>
+          <label className="form-label">Date:</label>
           <DatePicker
+            className="d-block mb-3 w-50"
             required={true}
             value={creditNote.creditNoteDate || ""}
             onChange={(e) =>
@@ -81,7 +84,9 @@ const AddCreditNotes = () => {
           />
         </div>
 
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

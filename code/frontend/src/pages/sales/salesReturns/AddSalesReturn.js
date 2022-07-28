@@ -35,14 +35,15 @@ const AddSalesReturn = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 className="display-6">Add a new Sales return</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Select a sales order ref. no.</label>
+          <label className="form-label">Select a sales order ref. no.</label>
           <select
+            className="form-select w-50 mb-3"
             required={true}
             value={salesReturn.salesOrder}
             onChange={(e) =>
@@ -61,15 +62,18 @@ const AddSalesReturn = () => {
           </select>
         </div>
         <div>
-          <label>Date:</label>
+          <label className="form-label">Date:</label>
           <DatePicker
+            className="d-block w-50 mb-3"
             required={true}
             value={salesReturn.date || ""}
             onChange={(e) => setSalesReturn({ ...salesReturn, date: e })}
           />
         </div>
 
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

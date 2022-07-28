@@ -29,7 +29,7 @@ const AddVendor = () => {
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Vendor Name:</label>
+          <label className="form-label">Vendor Name:</label>
           <input
             required={true}
             value={vendor.vendorName || ""}
@@ -39,7 +39,7 @@ const AddVendor = () => {
           />
         </div>
         <div>
-          <label>Company:</label>
+          <label className="form-label">Company:</label>
           <input
             required={true}
             value={vendor.company || ""}
@@ -47,7 +47,7 @@ const AddVendor = () => {
           />
         </div>
         <div>
-          <label>Mobile:</label>
+          <label className="form-label">Mobile:</label>
           <input
             required={true}
             value={vendor.mobile || ""}
@@ -55,7 +55,7 @@ const AddVendor = () => {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label className="form-label">Email:</label>
           <input
             required={true}
             value={vendor.email || ""}
@@ -63,14 +63,16 @@ const AddVendor = () => {
           />
         </div>
         <div>
-          <label>Website:</label>
+          <label className="form-label">Website:</label>
           <input
             required={true}
             value={vendor.website || ""}
             onChange={(e) => setVendor({ ...vendor, website: e.target.value })}
           />
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

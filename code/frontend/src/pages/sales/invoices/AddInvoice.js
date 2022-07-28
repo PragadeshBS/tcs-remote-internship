@@ -66,14 +66,15 @@ const AddInvoice = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 className="display-6">Add a new Invoice</h1>
       {error && <div className="alert alert-danger w-50">{error}</div>}
       {success && <div className="alert alert-success w-50">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Order. No.:</label>
+          <label className="form-label">Order. No.:</label>
           <input
+            className="form-control w-50 mb-3"
             required={true}
             value={invoice.orderNo || ""}
             onChange={(e) =>
@@ -82,16 +83,18 @@ const AddInvoice = () => {
           />
         </div>
         <div>
-          <label>Invoice Date:</label>
+          <label className="form-label">Invoice Date:</label>
           <DatePicker
+            className="w-50 d-block mb-3"
             required={true}
             value={invoice.invoiceDate || ""}
             onChange={(e) => setInvoice({ ...invoice, invoiceDate: e })}
           />
         </div>
         <div>
-          <label>Customer:</label>
+          <label className="form-label">Customer:</label>
           <select
+            className="form-select w-50 mb-3"
             value={invoice.customer || ""}
             onChange={(e) =>
               setInvoice({ ...invoice, customer: e.target.value })
@@ -108,39 +111,44 @@ const AddInvoice = () => {
           </select>
         </div>
         <div>
-          <h3>Items in this order</h3>
+          <h3 className="mt-3">Items in this order</h3>
           <div>
-            <div>
-              <select
-                value={curItem}
-                onChange={(e) => setCurItem(e.target.value)}
-              >
-                <option value="">Choose an item to add</option>
-                {items &&
-                  items.map((item) => {
-                    if (!selectedItems.includes(item._id)) {
-                      return (
-                        <option key={item._id} value={item._id}>
-                          {item.name}
-                        </option>
-                      );
+            <div className="row">
+              <div className="col-6">
+                <select
+                  className="form-select"
+                  value={curItem}
+                  onChange={(e) => setCurItem(e.target.value)}
+                >
+                  <option value="">Choose an item to add</option>
+                  {items &&
+                    items.map((item) => {
+                      if (!selectedItems.includes(item._id)) {
+                        return (
+                          <option key={item._id} value={item._id}>
+                            {item.name}
+                          </option>
+                        );
+                      }
+                    })}
+                </select>
+              </div>
+              <div className="col-2">
+                <span
+                  className="btn btn-secondary mx-3"
+                  onClick={() => {
+                    if (curItem) {
+                      setSelectedItems([...selectedItems, curItem]);
+                      setCurItem("");
                     }
-                  })}
-              </select>
-              <div
-                className="btn btn-secondary mx-3"
-                onClick={() => {
-                  if (curItem) {
-                    setSelectedItems([...selectedItems, curItem]);
-                    setCurItem("");
-                  }
-                }}
-              >
-                Add Item
+                  }}
+                >
+                  Add Item
+                </span>
               </div>
             </div>
           </div>
-          <table className="table">
+          <table className="table mt-3">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -165,7 +173,9 @@ const AddInvoice = () => {
             </tbody>
           </table>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="btn btn-success">
+          Add
+        </button>
       </form>
     </div>
   );

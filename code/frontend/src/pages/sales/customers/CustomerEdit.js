@@ -47,7 +47,7 @@ const CustomerEdit = () => {
       {error && <div>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Customer Name:</label>
+          <label className="form-label">Customer Name:</label>
           <input
             required={true}
             value={customer.customerName}
@@ -57,7 +57,7 @@ const CustomerEdit = () => {
           />
         </div>
         <div>
-          <label>Company:</label>
+          <label className="form-label">Company:</label>
           <input
             required={true}
             value={customer.company}
@@ -67,7 +67,7 @@ const CustomerEdit = () => {
           />
         </div>
         <div>
-          <label>Mobile:</label>
+          <label className="form-label">Mobile:</label>
           <input
             required={true}
             value={customer.mobile}
@@ -77,7 +77,7 @@ const CustomerEdit = () => {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label className="form-label">Email:</label>
           <input
             required={true}
             value={customer.email}
