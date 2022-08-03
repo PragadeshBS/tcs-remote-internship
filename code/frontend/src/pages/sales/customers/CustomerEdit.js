@@ -49,6 +49,7 @@ const CustomerEdit = () => {
         <div>
           <label className="form-label">Customer Name:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={customer.customerName}
             onChange={(e) =>
@@ -59,6 +60,7 @@ const CustomerEdit = () => {
         <div>
           <label className="form-label">Company:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={customer.company}
             onChange={(e) =>
@@ -69,6 +71,7 @@ const CustomerEdit = () => {
         <div>
           <label className="form-label">Mobile:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={customer.mobile}
             onChange={(e) =>
@@ -79,6 +82,7 @@ const CustomerEdit = () => {
         <div>
           <label className="form-label">Email:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={customer.email}
             onChange={(e) =>
@@ -86,7 +90,9 @@ const CustomerEdit = () => {
             }
           />
         </div>
-        <button type="submit">Update</button>
+        <button type="submit" className="btn btn-primary my-2">
+          Update
+        </button>
       </form>
     </div>
   );

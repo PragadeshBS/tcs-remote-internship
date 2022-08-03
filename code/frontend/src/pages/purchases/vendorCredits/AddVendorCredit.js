@@ -78,6 +78,7 @@ const AddVendorCredit = () => {
         <div>
           <label className="form-label">Credit note no.:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendorCredit.creditNoteNo}
             onChange={(e) =>
@@ -88,6 +89,7 @@ const AddVendorCredit = () => {
         <div>
           <label className="form-label">Date:</label>
           <DatePicker
+            className="d-block w-75"
             required={true}
             value={vendorCredit.date}
             onChange={(e) => setVendorCredit({ ...vendorCredit, date: e })}
@@ -96,6 +98,7 @@ const AddVendorCredit = () => {
         <div>
           <label className="form-label">Vendor:</label>
           <select
+            className="form-select w-75"
             value={vendorCredit.vendor}
             onChange={(e) =>
               setVendorCredit({ ...vendorCredit, vendor: e.target.value })
@@ -112,10 +115,11 @@ const AddVendorCredit = () => {
           </select>
         </div>
         <div>
-          <h3>Items in this credit</h3>
-          <div>
-            <div>
+          <h2 className="mt-3">Items in this credit</h2>
+          <div className="row">
+            <div className="col-8">
               <select
+                className="form-select w-75"
                 value={curItem}
                 onChange={(e) => setCurItem(e.target.value)}
               >
@@ -131,20 +135,20 @@ const AddVendorCredit = () => {
                     }
                   })}
               </select>
-              <div
-                className="btn btn-secondary mx-3"
-                onClick={() => {
-                  if (curItem) {
-                    setSelectedItems([...selectedItems, curItem]);
-                    setCurItem("");
-                  }
-                }}
-              >
-                Add Item
-              </div>
+            </div>
+            <div
+              className="col-1 btn btn-secondary mx-3"
+              onClick={() => {
+                if (curItem) {
+                  setSelectedItems([...selectedItems, curItem]);
+                  setCurItem("");
+                }
+              }}
+            >
+              Add Item
             </div>
           </div>
-          <table className="table">
+          <table className="table mt-3">
             <thead>
               <tr>
                 <th scope="col">#</th>

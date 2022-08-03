@@ -49,6 +49,7 @@ const EditVendor = () => {
         <div>
           <label className="form-label">Vendor Name:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.vendorName}
             onChange={(e) =>
@@ -59,6 +60,7 @@ const EditVendor = () => {
         <div>
           <label className="form-label">Company:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.company}
             onChange={(e) => setVendor({ ...vendor, company: e.target.value })}
@@ -67,6 +69,7 @@ const EditVendor = () => {
         <div>
           <label className="form-label">Mobile:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.mobile}
             onChange={(e) => setVendor({ ...vendor, mobile: e.target.value })}
@@ -75,6 +78,7 @@ const EditVendor = () => {
         <div>
           <label className="form-label">Email:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.email}
             onChange={(e) => setVendor({ ...vendor, email: e.target.value })}
@@ -83,12 +87,15 @@ const EditVendor = () => {
         <div>
           <label className="form-label">Website:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.website}
             onChange={(e) => setVendor({ ...vendor, website: e.target.value })}
           />
         </div>
-        <button type="submit">Update</button>
+        <button type="submit" className="btn btn-primary my-2">
+          Update
+        </button>
       </form>
     </div>
   );

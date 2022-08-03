@@ -31,6 +31,7 @@ const AddVendor = () => {
         <div>
           <label className="form-label">Vendor Name:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.vendorName || ""}
             onChange={(e) =>
@@ -41,6 +42,7 @@ const AddVendor = () => {
         <div>
           <label className="form-label">Company:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.company || ""}
             onChange={(e) => setVendor({ ...vendor, company: e.target.value })}
@@ -49,6 +51,7 @@ const AddVendor = () => {
         <div>
           <label className="form-label">Mobile:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.mobile || ""}
             onChange={(e) => setVendor({ ...vendor, mobile: e.target.value })}
@@ -57,6 +60,7 @@ const AddVendor = () => {
         <div>
           <label className="form-label">Email:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.email || ""}
             onChange={(e) => setVendor({ ...vendor, email: e.target.value })}
@@ -65,12 +69,13 @@ const AddVendor = () => {
         <div>
           <label className="form-label">Website:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={vendor.website || ""}
             onChange={(e) => setVendor({ ...vendor, website: e.target.value })}
           />
         </div>
-        <button type="submit" className="btn btn-success">
+        <button type="submit" className="btn btn-success my-3">
           Add
         </button>
       </form>

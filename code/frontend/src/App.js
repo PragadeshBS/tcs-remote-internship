@@ -29,7 +29,6 @@ import AddSalesReturn from "./pages/sales/salesReturns/AddSalesReturn";
 import SalesReturnDetail from "./pages/sales/salesReturns/SalesReturnDetail";
 import CreditNotes from "./pages/sales/creditNotes/CreditNotes";
 import AddCreditNotes from "./pages/sales/creditNotes/AddCreditNotes";
-import CreditNotesDetail from "./pages/sales/creditNotes/CreditNotesDetail";
 import Vendors from "./pages/purchases/vendors/Vendors";
 import AddVendor from "./pages/purchases/vendors/AddVendor";
 import EditVendor from "./pages/purchases/vendors/EditVendor";
@@ -97,10 +96,6 @@ function App() {
                 />
                 <Route path="sales-returns/add" element={<AddSalesReturn />} />
                 <Route path="credit-notes" element={<CreditNotes />} />
-                <Route
-                  path="credit-notes/:id"
-                  element={<CreditNotesDetail />}
-                />
                 <Route path="credit-notes/add" element={<AddCreditNotes />} />
               </Route>
               <Route path="purchases">

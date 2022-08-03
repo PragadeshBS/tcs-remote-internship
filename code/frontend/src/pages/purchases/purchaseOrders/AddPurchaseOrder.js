@@ -64,6 +64,7 @@ const AddPurchaseOrder = () => {
         <div>
           <label className="form-label">Ref. No.:</label>
           <input
+            className="form-control w-75"
             required={true}
             value={purchaseOrder.refNo || ""}
             onChange={(e) =>
@@ -72,8 +73,9 @@ const AddPurchaseOrder = () => {
           />
         </div>
         <div>
-          <label className="form-label">Order Date:</label>
+          <label className="form-label d-block">Order Date:</label>
           <DatePicker
+            className="w-75"
             required={true}
             value={purchaseOrder.orderDate || ""}
             onChange={(e) =>
@@ -84,6 +86,7 @@ const AddPurchaseOrder = () => {
         <div>
           <label className="form-label">Vendor:</label>
           <select
+            className="form-select w-75"
             value={purchaseOrder.vendor || ""}
             onChange={(e) =>
               setPurchaseOrder({ ...purchaseOrder, vendor: e.target.value })
@@ -100,10 +103,11 @@ const AddPurchaseOrder = () => {
           </select>
         </div>
         <div>
-          <h3>Items in this order</h3>
-          <div>
-            <div>
+          <h2 className="mt-3">Items in this order</h2>
+          <div className="row justify-content-start">
+            <div className="col-8">
               <select
+                className="form-select w-50"
                 value={curItem}
                 onChange={(e) => setCurItem(e.target.value)}
               >
@@ -119,20 +123,20 @@ const AddPurchaseOrder = () => {
                     }
                   })}
               </select>
-              <div
-                className="btn btn-secondary mx-3"
-                onClick={() => {
-                  if (curItem) {
-                    setSelectedItems([...selectedItems, curItem]);
-                    setCurItem("");
-                  }
-                }}
-              >
-                Add Item
-              </div>
+            </div>
+            <div
+              className="col-1 btn btn-secondary mx-3"
+              onClick={() => {
+                if (curItem) {
+                  setSelectedItems([...selectedItems, curItem]);
+                  setCurItem("");
+                }
+              }}
+            >
+              Add Item
             </div>
           </div>
-          <table className="table">
+          <table className="table mt-3">
             <thead>
               <tr>
                 <th scope="col">#</th>
