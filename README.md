@@ -2,6 +2,8 @@
 
 TCS iON RIO-125: Operations Management - Inventory Module using MERN Stack
 
+Video explaining the project -> [Click here](https://youtu.be/WsZ5aKmpsUo)
+
 ### Project Objective
 The objective of this project is to develop an automated software for Inventory Management module of Operations Management using MERN Stack.
 
